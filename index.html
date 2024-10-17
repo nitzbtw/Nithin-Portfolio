@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f3f3f3;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 50px;
+            background-color: #e5e5e5;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style-type: none;
+        }
+
+        .nav-links li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        .intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .intro-text {
+            width: 50%;
+        }
+
+        .intro h2 {
+            font-size: 36px;
+            font-weight: 400;
+        }
+
+        .intro h2 span {
+            font-weight: 600;
+        }
+
+        .intro button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-weight: 600;
+            border: none;
+            background-color: #ccc;
+            cursor: pointer;
+            border-radius: 7.5px;
+        }
+
+        .intro button:hover {
+            background-color: #aaa;
+        }
+
+        .intro-img {
+            width: 45%;
+            text-align: right;
+        }
+
+        .intro-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-img img:hover {
+            transform: scale(1.2);
+        }
+
+        #about {
+            background-color: #f2f2f2;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            max-width: 900px;
+            margin: auto;
+            flex-direction: row-reverse;
+        }
+
+        .about-text {
+            width: 60%;
+            text-align: left;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            font-weight: 300;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .about-img img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.1);
+        }
+
+        h4 {
+            margin-top: 40px;
+            font-weight: 300;
+            font-size: 18px;
+            letter-spacing: 1.5px;
+        }
+
+        .works-section {
+            padding: 50px 0;
+            text-align: center; 
+        }
+
+        .works-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .work-item {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .work-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        .work-item h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .work-item p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: #777;
+        }
+
+        .view-button {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #333;
+            color: #fff;
+            margin-top: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .view-button:hover {
+            background-color: #555;
+        }
+
+        .design-quote {
+            margin-top: 50px;
+            font-size: 1.5rem;
+            color: #444;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .contact-section {
+            background-color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 12px 40px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .contact-button:hover {
+            background-color: #555;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons img {
+            width: 35px;
+            height: 35px;
+            margin: 0 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f8f8f8;
+            color: #888;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <h1 class="logo">Nithin Sriram</h1>
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#Works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="intro">
+            <div class="intro-text">
+                <h2>Meet <span>Nithin Sriram</span></h2>
+                <button onclick="window.location.href='#Works'">View Works</button>
+            </div>
+            <div class="intro-img">
+                <img src="https://i.imgur.com/j3hducI.png" alt="3D person illustration">
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h3>ABOUT ME</h3>
+                <p>Greetings, This is Nithin. I am a very passionate UX/UI designer. My goal is to create minimalist and smart user interfaces that can make people feel empowered. My journey into User Research is deeply inspired by its ability to influence people on a whole new dimension.</p>
+            </div>
+            <div class="about-img">
+                <img src="https://i.imgur.com/AtpS39l.jpeg" alt="Nithin's image">
+            </div>
+        </div>
+        <h4>“BOUND TO CONNECT PEOPLE”</h4>
+    </section>
+
+    <section id="Works" class="works-section">
+        <h1>MY WORKS</h1>
+        <div class="works-container">
+            <div class="work-item">
+                <img src="https://i.imgur.com/LAdbnYc.png" alt="My Stove Logo">
+                <h2>My Stove</h2>
+                <p>My Stove is a smart stove integrated with an interface that elevates your kitchen to another level.</p>
+                <a href="" class="view-button">View</a>
+            </div>
+            <div class="work-item">
+                <img src="https://i.imgur.com/SEhHCmd.png" alt="Routed Logo">
+                <h2>Routed</h2>
+                <p>A systematic service app designed to help two-wheeler drivers navigate safely through Indian roads.</p>
+                <a href="https://www.behance.net/gallery/210462549/Routed-Service-Design-Prototype" class="view-button">View</a>
+            </div>
+            <div class="work-item">
+                <img src="https://i.imgur.com/MQddKvv.png" alt="Brighter Logo">
+                <h2>Brighter</h2>
+                <p>An app designed solely to help people with their mental health issues with intuitive features that keep them going.</p>
+                <a href="" class="view-button">View</a>
+            </div>
+        </div>
+        <h2 class="design-quote">"DESIGN IS EVERYWHERE"</h2>
+    </section>
+    
+    <section id="contact" class="contact-section">
+        <h1>Get In Contact</h1>
+        <p>Feel free to reach out for collaborative design ventures</p>
+        <a href="mailto:nithin@example.com" class="contact-button">Connect via mail</a>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com"><img src="https://i.pinimg.com/originals/b2/f8/28/b2f828513f21444829a619ce563d4d4e.png" alt="LinkedIn"></a>
+            <a href="https://www.behance.net/nithinpesurr"><img src="https://cdn-icons-png.flaticon.com/512/51/51916.png" alt="Behance"></a>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Nithin Sriram. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
